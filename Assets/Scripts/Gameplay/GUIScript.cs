@@ -44,6 +44,8 @@ public class GUIScript : MonoBehaviour {
 	
 	private SpawnerScript spawnerScript;
 	
+//	private LayerMask ghostLayer = LayerMask.NameToLayer("GhostLayer");
+	
 	private bool showingTurretMenu;
 	private Rect[] turretBtns;
 	
@@ -186,14 +188,26 @@ public class GUIScript : MonoBehaviour {
 		{
 			if(turretGhost != null)
 			{
-				Destroy(turretGhost);
+//				Destroy(turretGhost);
 			}
 		}
 		
 		if(turretGhost != null)
 		{
-			//CONTINIUM - рэйкаст по Y на Level
-			turretGhost.transform.position = Input.mousePosition;
+			RaycastHit hit;
+			Ray scrRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+			
+			RaycastHit[] hits = Physics.RaycastAll(scrRay, Mathf.Infinity);
+			
+			foreach(RaycastHit rayHit in hits)
+			{
+				if(rayHit.transform.name == "GhostPlane")
+				{
+					turretGhost.transform.position = rayHit.point;
+//				Debug.Log(rayHit.transform.name);
+//					CONTINUE
+				}
+			}
 		}
 	}
 }
