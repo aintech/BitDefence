@@ -28,11 +28,11 @@ public class MarkerScript : MonoBehaviour {
 	}
 	
 	private void OnMouseDown() {
-		if(markerFree && !markerMenuAppear) {
-			markerMenu = Instantiate(markerMenuPrefub, (transform.position + menuHeight), Quaternion.identity) as GameObject;
-			markerMenuAppear = true;
-			markerMenu.GetComponent<MarkerMenuScript>().Marker = transform.gameObject;
-		}
+//		if(markerFree && !markerMenuAppear) {
+//			markerMenu = Instantiate(markerMenuPrefub, (transform.position + menuHeight), Quaternion.identity) as GameObject;
+//			markerMenuAppear = true;
+//			markerMenu.GetComponent<MarkerMenuScript>().Marker = transform.gameObject;
+//		}
 	}
 	
 	public void InstallTurret(TurretScript.TurretType type, int turretLevel, Quaternion rotation) {

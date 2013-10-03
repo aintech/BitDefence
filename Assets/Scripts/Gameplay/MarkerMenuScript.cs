@@ -108,8 +108,8 @@ public class MarkerMenuScript : MonoBehaviour {
 		
 		ghostTurret = Instantiate(prefab, Marker.transform.position + ghostInstallHeight, Quaternion.identity) as GameObject;
 		
-		actionMenu = Instantiate(actionMenuprefab, trans.position + new Vector3(0, 0.2f, 0), Quaternion.identity) as GameObject;
-		actionMenu.GetComponent<ActionMenuScript>().Init(turretType, this);
+//		actionMenu = Instantiate(actionMenuprefab, trans.position + new Vector3(0, 0.2f, 0), Quaternion.identity) as GameObject;
+//		actionMenu.GetComponent<ActionMenuScript>().Init(turretType, this);
 		
 		rangeSphere = Instantiate(rangeSpherePrefab, Marker.transform.position, Quaternion.identity) as GameObject;
 		rangeSphere.GetComponent<RangeSphereScript>().SetRange(getTurretRange(turretType));

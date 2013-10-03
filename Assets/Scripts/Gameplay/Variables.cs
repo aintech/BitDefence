@@ -20,6 +20,9 @@ public class Variables : MonoBehaviour {
 	
 	public static List<GameObject> markers = new List<GameObject>();
 	
+	//for elements that need to be remove - like actionmenu if created another menu
+	private static List<GameObject> elements = new List<GameObject>();
+	
 //	public static bool HealthBarVisible
 //	{
 //		set 
@@ -34,5 +37,19 @@ public class Variables : MonoBehaviour {
 		GameOver = false;
 		Money = 2000;
 		Lives = 10;
+	}
+	
+	public static void PutInElements(GameObject obj)
+	{
+		elements.Add(obj);
+	}
+	
+	public static void RemoveAllFromElements()
+	{
+		foreach(GameObject element in elements)
+		{
+			Destroy(element);
+		}
+		elements.RemoveRange(0, elements.Count);
 	}
 }

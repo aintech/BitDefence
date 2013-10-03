@@ -51,13 +51,16 @@
      <Compile Include="Assets\Scripts\Gameplay\Enemy\EnemyHealthbarScript.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Enemy\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Enemy\EnemySpeederScript.cs" />
-     <Compile Include="Assets\Scripts\Gameplay\GUIScript.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\GUI\BuyTurretScript.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\GUI\GUIScript.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\GUI\GameStatisticScript.cs" />
      <Compile Include="Assets\Scripts\Gameplay\LevelData.cs" />
      <Compile Include="Assets\Scripts\Gameplay\MarkerMenuButtonScript.cs" />
      <Compile Include="Assets\Scripts\Gameplay\MarkerMenuScript.cs" />
      <Compile Include="Assets\Scripts\Gameplay\MarkerScript.cs" />
      <Compile Include="Assets\Scripts\Gameplay\RoadPointScript.cs" />
      <Compile Include="Assets\Scripts\Gameplay\SpawnerScript.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\Turrets\GhostTurretScript.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Turrets\RangeSphereScript.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Turrets\TurretAntiMaterielBulletScript.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Turrets\TurretAntiMaterielScript.cs" />

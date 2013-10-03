@@ -8,7 +8,7 @@ public class ActionMenuScript : MonoBehaviour {
 	private GameObject actionMenuText;
 	private TextMesh menuText;
 	
-	private MarkerMenuScript parentScript;
+	private BuyTurretScript parentScript;
 	private int turretCost;
 	
 	public TurretScript.TurretType TurretType { get; private set; }
@@ -25,9 +25,11 @@ public class ActionMenuScript : MonoBehaviour {
 		
 		actionMenuText = Instantiate(actionMenuTextPrefab, transform.position, Quaternion.identity) as GameObject;
 		menuText = actionMenuText.transform.FindChild("TextField").GetComponent<TextMesh>();
+		
+		Variables.PutInElements(gameObject);
 	}
 	
-	public void Init(TurretScript.TurretType turretType, MarkerMenuScript parentScript)
+	public void Init(TurretScript.TurretType turretType, BuyTurretScript parentScript)
 	{
 		TurretType = turretType;
 		this.parentScript = parentScript;
@@ -72,9 +74,9 @@ public class ActionMenuScript : MonoBehaviour {
 	{
 		if(agree)
 		{
-			if(turretCost <= Variables.Money) parentScript.TurretForInstall(TurretType);
+			if(turretCost <= Variables.Money) parentScript.InstallTurret(TurretType);
 		}
-		parentScript.HideActionMenu();
+		parentScript.RemoveActionMenu();
 	}
 	
 	private void OnDestroy()
