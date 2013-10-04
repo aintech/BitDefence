@@ -63,17 +63,17 @@ public class TurretMenuButtonScript : MonoBehaviour {
 		}
 		else if(transform.name.Equals("Uninstall"))
 		{
-			transform.parent.GetComponent<TurretMenuScript>().Turret.GetComponent<TurretScript>().RemoveTurretMenu();
-			transform.parent.GetComponent<TurretMenuScript>().Turret.GetComponent<TurretScript>().Marker.GetComponent<MarkerScript>().UninstallTurret();
+//			transform.parent.GetComponent<TurretMenuScript>().Turret.GetComponent<TurretScript>().RemoveTurretMenu();
+//			transform.parent.GetComponent<TurretMenuScript>().Turret.GetComponent<TurretScript>().Marker.GetComponent<MarkerScript>().UninstallTurret();
 		}
 		else if(transform.name.Equals("Upgrade"))
 		{
 			if(available)
 			{
-				transform.parent.GetComponent<TurretMenuScript>().Turret.GetComponent<TurretScript>().RemoveTurretMenu();
-				transform.parent.GetComponent<TurretMenuScript>().Turret.GetComponent<TurretScript>().Marker.GetComponent<MarkerScript>().UpgradeTurret(transform.parent.GetComponent<TurretMenuScript>().Turret.GetComponent<TurretScript>().CurrentType, 
-																																						transform.parent.GetComponent<TurretMenuScript>().Turret.GetComponent<TurretScript>().Level, 
-																																						transform.parent.GetComponent<TurretMenuScript>().Turret.GetComponent<TurretScript>().BodyRotation);
+//				transform.parent.GetComponent<TurretMenuScript>().Turret.GetComponent<TurretScript>().RemoveTurretMenu();
+//				transform.parent.GetComponent<TurretMenuScript>().Turret.GetComponent<TurretScript>().Marker.GetComponent<MarkerScript>().UpgradeTurret(transform.parent.GetComponent<TurretMenuScript>().Turret.GetComponent<TurretScript>().CurrentType, 
+//																																						transform.parent.GetComponent<TurretMenuScript>().Turret.GetComponent<TurretScript>().Level, 
+//																																						transform.parent.GetComponent<TurretMenuScript>().Turret.GetComponent<TurretScript>().BodyRotation);
 			}
 		}
 	}

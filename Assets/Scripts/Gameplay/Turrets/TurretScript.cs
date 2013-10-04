@@ -107,7 +107,6 @@ public abstract class TurretScript : MonoBehaviour {
 	
 	private Vector3 menuHeight = new Vector3(0, 1.2f, 0);
 	
-	public GameObject Marker { get; set; }
 	public TurretType CurrentType { get; set; }
 	public int UpgradeCost { get; set; }
 	public int Level { get; set; }
@@ -222,7 +221,8 @@ public abstract class TurretScript : MonoBehaviour {
 	
 	public void UninstallTurret()
 	{
-		Marker.GetComponent<MarkerScript>().UninstallTurret();
+		GameObject level = GameObject.Find("Level");
+		level.GetComponent<LevelScript>().UninstallTurret();
 	}
 	
 	public void RemoveTurretMenu()

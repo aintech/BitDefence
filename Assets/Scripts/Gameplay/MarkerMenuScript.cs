@@ -87,7 +87,7 @@ public class MarkerMenuScript : MonoBehaviour {
 	
 	public void TurretForInstall(TurretScript.TurretType type) 
 	{
-		Marker.GetComponent<MarkerScript>().InstallTurret(type, 1, Quaternion.identity);
+//		Marker.GetComponent<MarkerScript>().InstallTurret(type, 1, Quaternion.identity);
 	}
 	
 	public void ShowActionMenu(TurretScript.TurretType turretType)

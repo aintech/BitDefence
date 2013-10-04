@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\Gameplay\GUI\GUIScript.cs" />
      <Compile Include="Assets\Scripts\Gameplay\GUI\GameStatisticScript.cs" />
      <Compile Include="Assets\Scripts\Gameplay\LevelData.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\LevelScript.cs" />
      <Compile Include="Assets\Scripts\Gameplay\MarkerMenuButtonScript.cs" />
      <Compile Include="Assets\Scripts\Gameplay\MarkerMenuScript.cs" />
      <Compile Include="Assets\Scripts\Gameplay\MarkerScript.cs" />
