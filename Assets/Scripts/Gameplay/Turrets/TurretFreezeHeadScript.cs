@@ -38,7 +38,11 @@ public class TurretFreezeHeadScript : MonoBehaviour {
 	
 	private void Update()
 	{
-		if(target == null) FindTarget();
+		if(target == null) 
+		{
+			FindTarget();
+			rayRenderer.SetPosition(1, trans.position);
+		}
 		else FreezeTarget();
 		
 		if(target != null && Vector3.Distance(target.position, transform.position) > range)
@@ -46,7 +50,6 @@ public class TurretFreezeHeadScript : MonoBehaviour {
 			target.GetComponent<EnemyScript>().Freeze = false;
 			target.GetComponent<EnemyScript>().FreezeRayId = 0;
 			target = null;
-			rayRenderer.SetPosition(1, trans.position);
 		}
 	}
 	

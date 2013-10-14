@@ -15,7 +15,7 @@ public class SpawnerScript : MonoBehaviour {
 	public int CurrentWave { get; private set; }
 	public float WaveDelayCounter { get; private set; }
 	public float WaveDelay { get; private set; }
-	public bool WaveStarted { get; set; }
+	public bool WaveStarted { get; private set; }
 	
 	private Vector3 speederYOffset = new Vector3(0, 0.2f, 0);
 		
@@ -85,6 +85,11 @@ public class SpawnerScript : MonoBehaviour {
 				}
 			}
 		}
+	}
+	
+	public void StartWave()
+	{
+		WaveStarted = true;
 	}
 	
 	private void LevelWon()

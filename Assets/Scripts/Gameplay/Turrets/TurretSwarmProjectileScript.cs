@@ -86,9 +86,12 @@ public class TurretSwarmProjectileScript : MonoBehaviour {
 		foreach(ContactPoint point in collision.contacts)
 		{
 			other = point.otherCollider.gameObject;
-			if(other.name.Contains("Enemy"))
+			if(other.name.Contains("Enemy") || other.name.Equals("Level"))
 			{
-				other.GetComponent<EnemyScript>().damageEnemy(damage, armorPiercing);
+				if(other != null)
+				{
+					other.GetComponent<EnemyScript>().damageEnemy(damage, armorPiercing);
+				}
 				Explode();
 				return;
 			}

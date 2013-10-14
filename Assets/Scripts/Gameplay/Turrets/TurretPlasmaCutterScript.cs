@@ -97,6 +97,7 @@ public class TurretPlasmaCutterScript : TurretScript
 			{
 				if(hit.transform.name.Contains("Enemy"))
 				{
+					Debug.Log("HIT");
 					hit.transform.GetComponent<EnemyScript>().damageEnemy(damage, armorPiercing);
 				}
 			}

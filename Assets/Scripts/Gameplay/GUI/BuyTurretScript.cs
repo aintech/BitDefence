@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BuyTurretScript : GUIScript {
+public class BuyTurretScript : MonoBehaviour {
 	
 	public GUIStyle buttonStyle;
 	public GameObject actionMenuPrefab;
+	
+	private Vector2 btnDimension = new Vector2(30, 30);
+	private float btnOffset = 3;
 	
 	private GameObject actionMenu;
 	private Vector3 actionMenuOffset = new Vector3(0, 0.6f, 0);
@@ -28,15 +31,6 @@ public class BuyTurretScript : GUIScript {
 	public GameObject ghostPlasmaCutter;
 	public GameObject ghostMiner;
 	
-//	public GameObject gunPrefab;
-//	public GameObject hammerPrefab;
-//	public GameObject swarmPrefab;
-//	public GameObject freezePrefab;
-//	public GameObject antiMaterielPrefab;
-//	public GameObject teslaPrefab;
-//	public GameObject plasmaCutterPrefab;
-//	public GameObject minerPrefab;
-	
 	private GameObject installingTurret;
 	
 	private GameObject turretGhost;
@@ -48,9 +42,11 @@ public class BuyTurretScript : GUIScript {
 	
 	private Vector2 ghostBounds;
 	
-	override protected void Init()
+	private GameObject level;
+	
+	private void Awake()
 	{
-		GameObject level = GameObject.Find("Level");
+		level = GameObject.Find("Level");
 		
 		Bounds levelBounds = level.collider.bounds;
 		
@@ -189,36 +185,7 @@ public class BuyTurretScript : GUIScript {
 	
 	public void InstallTurret(TurretScript.TurretType type)
 	{
-		GameObject level = GameObject.Find("Level");
 		level.GetComponent<LevelScript>().InstallTurret(type, turretGhost.transform.position, 1, Quaternion.identity);
-//		switch(type)
-//		{
-//			case TurretScript.TurretType.AntiMaterial:
-//				installingTurret = Instantiate(antiMaterielPrefab, turretGhost.transform.position, Quaternion.identity) as GameObject;
-//				break;
-//			case TurretScript.TurretType.Freeze:
-//				installingTurret = Instantiate(freezePrefab, turretGhost.transform.position, Quaternion.identity) as GameObject;
-//				break;
-//			case TurretScript.TurretType.Gun:
-//				installingTurret = Instantiate(gunPrefab, turretGhost.transform.position, Quaternion.identity) as GameObject;
-//				break;
-//			case TurretScript.TurretType.Hammer:
-//				installingTurret = Instantiate(hammerPrefab, turretGhost.transform.position, Quaternion.identity) as GameObject;
-//				break;
-//			case TurretScript.TurretType.Miner:
-//				installingTurret = Instantiate(minerPrefab, turretGhost.transform.position, Quaternion.identity) as GameObject;
-//				break;
-//			case TurretScript.TurretType.PlasmaCutter:
-//				installingTurret = Instantiate(plasmaCutterPrefab, turretGhost.transform.position, Quaternion.identity) as GameObject;
-//				break;
-//			case TurretScript.TurretType.Swarm:
-//				installingTurret = Instantiate(swarmPrefab, turretGhost.transform.position, Quaternion.identity) as GameObject;
-//				break;
-//			case TurretScript.TurretType.Tesla:
-//				installingTurret = Instantiate(teslaPrefab, turretGhost.transform.position, Quaternion.identity) as GameObject;
-//				break;
-//		}
-//		installingTurret.GetComponent<TurretScript>().Init();
 		Destroy(turretGhost);
 	}
 	

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 //FIX - swarm при выпуске ракет может повернуться и выбрать другого противка, даже если текущий жив
 
+//TODO - forwardPointer в модельку Hammer
+
 public class Variables : MonoBehaviour {
 	
 //	private static bool healthBarVisible;
