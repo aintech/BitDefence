@@ -17,10 +17,11 @@ public class EnemyScript : MonoBehaviour {
 	private Color hitBarColor = Color.green;
 	private Color damagedBarColor = Color.yellow;
 	private Color almostDestroyedBarColor = Color.red;
-	
+		
 	private float barForwardOffset = 0.05f;
-	private float barLeftOffset = 0.13f;
-	private float barRightOffset = 0.13f;
+	private float barLeftOffset = 0.4f;
+	private float barRightOffset = 0.4f;
+	private float barHeight = 0.21f;
 	
 	private Transform trans;
 	
@@ -50,7 +51,7 @@ public class EnemyScript : MonoBehaviour {
 		
 		healthBar = (Instantiate(EnemyHealthBar, trans.position + healthBarOffset, Quaternion.identity) as GameObject).transform;
 		barRenderer = healthBar.GetComponent<LineRenderer>();
-		barRenderer.SetWidth(0.07f, 0.07f);
+		barRenderer.SetWidth(barHeight, barHeight);
 		barRenderer.SetColors(fullBarColor, fullBarColor);
 		
 		Freeze = false;

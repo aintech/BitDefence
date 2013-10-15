@@ -8,7 +8,7 @@ public class EnemySpeederScript : EnemyScript {
 	
 	private void Awake()
 	{
-		healthBarOffset = new Vector3(0, 0.3f, 0);
+		healthBarOffset = new Vector3(0, 0.9f, 0);
 		moneyDrop = 20;
 	}
 }

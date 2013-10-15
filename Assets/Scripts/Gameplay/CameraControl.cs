@@ -6,8 +6,8 @@ public class CameraControl : MonoBehaviour {
 	private float speedMult = 0.05f;
 	private float speed = 0;
 	
-	private float minDistance = 2f;
-	private float maxDistance = 5;
+	private float minDistance = 6;
+	private float maxDistance = 15;
 	
 	private Transform trans;
 	

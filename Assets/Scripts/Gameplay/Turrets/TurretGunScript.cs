@@ -22,8 +22,9 @@ public class TurretGunScript : TurretScript
 	private int gunsAmount = 1;
 	
 	private List<LineRenderer> gunfires;
-	private float gunfireOffset = 0.26f;
-	private float gunfireWidth = 0.5f;
+	private float gunfireOffset = 0.78f;
+	private float gunfireHeight = 0.6f;
+	private float gunfireWidth = 1.5f;
 	private float gunfireVisibleTime;
 	private float gunfireVisibleMax = 0.02f;
 	
@@ -65,7 +66,7 @@ public class TurretGunScript : TurretScript
 			LineRenderer fireRender = (Instantiate(gunfirePrefab) as GameObject).GetComponent<LineRenderer>();
 			fireRender.SetPosition(0, trans.position);
 			fireRender.SetPosition(1, trans.position);
-			fireRender.SetWidth(0.2f, 0.2f);
+			fireRender.SetWidth(gunfireHeight, gunfireHeight);
 			gunfires.Add(fireRender);
 		}
 	}

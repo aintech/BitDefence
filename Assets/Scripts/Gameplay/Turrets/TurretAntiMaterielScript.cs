@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class TurretAntiMaterielScript : TurretScript {
 	
 	public GameObject gunfirePrefab;
-	public GameObject bulletPrefab;
+//	public GameObject bulletPrefab;
 	
 	private Transform gun;
 	private Transform barrel;

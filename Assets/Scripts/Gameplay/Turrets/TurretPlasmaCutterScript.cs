@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class TurretPlasmaCutterScript : TurretScript
 {
+	public GameObject rayPrefab;
+	
 	private Transform holder;
 	private List<Transform> guns;
 	private List<LineRenderer> rayRenderers;
@@ -36,9 +38,15 @@ public class TurretPlasmaCutterScript : TurretScript
 		guns.Add(holder.FindChild("Gun_3"));
 		
 		rayRenderers = new List<LineRenderer>();
-		rayRenderers.Add(guns[0].GetComponent<LineRenderer>());
-		rayRenderers.Add(guns[1].GetComponent<LineRenderer>());
-		rayRenderers.Add(guns[2].GetComponent<LineRenderer>());
+		for(int i = 0; i < guns.Count; i++)
+		{
+			GameObject ray = Instantiate(rayPrefab) as GameObject;
+			rayRenderers.Add(ray.GetComponent<LineRenderer>());
+		}
+		
+//		rayRenderers.Add(guns[0].GetComponent<LineRenderer>());
+//		rayRenderers.Add(guns[1].GetComponent<LineRenderer>());
+//		rayRenderers.Add(guns[2].GetComponent<LineRenderer>());
 		
 		SetRaysToDefault();
 	}

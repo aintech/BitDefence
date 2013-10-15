@@ -4,6 +4,7 @@ using System.Collections.Generic;
 //FIX - swarm при выпуске ракет может повернуться и выбрать другого противка, даже если текущий жив
 
 //TODO - forwardPointer в модельку Hammer
+//TODO - настроить радиус турелей и проверить rangeSphere - чтобы отображала правильно радиус
 
 public class Variables : MonoBehaviour {
 	
