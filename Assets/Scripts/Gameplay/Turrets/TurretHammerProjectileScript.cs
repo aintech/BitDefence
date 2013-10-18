@@ -22,7 +22,6 @@ public class TurretHammerProjectileScript : MonoBehaviour {
 		trans = transform;
 		Physics.IgnoreCollision(transform.collider, turret.collider);
 		launchPosition = startPosition;
-		forwardPointer = trans.FindChild("ForwardPointer");
 		
 		trans.position -= new Vector3(0, moveCount, 0);
 	}
@@ -34,9 +33,6 @@ public class TurretHammerProjectileScript : MonoBehaviour {
 			moveCount -= moveStep;
 			trans.rotation = launchPosition.rotation;
 			trans.position = launchPosition.position - trans.up * moveCount;
-			Debug.Log(forwardPointer);
-			forwardPointer.position = trans.position;
-			forwardPointer.rotation = trans.rotation;
 			if(moveCount <= 0)
 			{
 				onStartPosition = true;
@@ -47,8 +43,6 @@ public class TurretHammerProjectileScript : MonoBehaviour {
 		{
 			trans.rotation = launchPosition.rotation;
 			trans.position = launchPosition.position;
-			forwardPointer.position = trans.position;
-			forwardPointer.rotation = trans.rotation;
 		}
 		else if(!falling)
 		{
@@ -65,8 +59,6 @@ public class TurretHammerProjectileScript : MonoBehaviour {
 	{
 		trans.rotation = launchPosition.rotation;
 		trans.position = launchPosition.position;
-		forwardPointer.position = trans.position;
-		forwardPointer.rotation = trans.rotation;
 		
 		if(distance > 6) distance *= 0.85f;
 		float estimatedDistance = distance + 1.9f;

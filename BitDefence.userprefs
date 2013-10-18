@@ -1,30 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Gameplay\Variables.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Gameplay\CameraControl.cs">
     <Files>
-      <File FileName="Assets\Scripts\Gameplay\CameraControl.cs" Line="13" Column="2" />
-      <File FileName="Assets\Scripts\Gameplay\BillboardScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Gameplay\LevelScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Gameplay\Turrets\GhostTurretScript.cs" Line="11" Column="35" />
-      <File FileName="Assets\Scripts\Gameplay\ActionMenuScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Gameplay\MarkerMenuScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Gameplay\Variables.cs" Line="7" Column="37" />
-      <File FileName="Assets\Scripts\Gameplay\Turrets\TurretGunScript.cs" Line="25" Column="36" />
+      <File FileName="Assets\Scripts\Gameplay\CameraControl.cs" Line="31" Column="31" />
+      <File FileName="Assets\Scripts\Gameplay\Turrets\GhostTurretScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Gameplay\Enemy\EnemySpeederScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Gameplay\Enemy\EnemyScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Gameplay\Turrets\TurretScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Gameplay\Turrets\TurretMenuButtonScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Gameplay\Turrets\TurretAntiMaterielBulletScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Gameplay\Turrets\TurretSwarmScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Gameplay\Turrets\TurretSwarmProjectileScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Gameplay\Turrets\TurretHammerProjectileScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Gameplay\GUI\GUIScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Gameplay\SpawnerScript.cs" Line="23" Column="3" />
-      <File FileName="Assets\Scripts\Gameplay\GUI\BuyTurretScript.cs" Line="142" Column="1" />
-      <File FileName="Assets\Scripts\Gameplay\Turrets\TurretPlasmaCutterScript.cs" Line="43" Column="57" />
-      <File FileName="Assets\Scripts\Gameplay\Turrets\TurretFreezeScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Gameplay\Turrets\TurretFreezeHeadScript.cs" Line="45" Column="4" />
-      <File FileName="Assets\Scripts\Gameplay\Enemy\EnemyScript.cs" Line="21" Column="41" />
-      <File FileName="Assets\Scripts\Gameplay\Enemy\EnemySpeederScript.cs" Line="11" Column="39" />
-      <File FileName="Assets\Scripts\Gameplay\Turrets\TurretAntiMaterielScript.cs" Line="8" Column="35" />
+      <File FileName="Assets\Scripts\Gameplay\Turrets\TurretHammerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Gameplay\Turrets\RangeSphereScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -74,14 +74,14 @@ public abstract class TurretScript : MonoBehaviour {
 	public static int PlasmaCutterUpdateCost = 50;
 	public static int MinerUpdateCost = 50;
 	
-	public static float GunStartRange = 4;
-	public static float HammerStartRange = 8;
-	public static float SwarmStartRange = 4;
-	public static float FreezeStartRange = 4;
-	public static float AntiMaterialStartRange = 4;
-	public static float TeslaStartRange = 4;
-	public static float PlasmaCutterStartRange = 4;
-	public static float MinerStartRange = 4;
+	public static float GunStartRange = 12;
+	public static float HammerStartRange = 24;
+	public static float SwarmStartRange = 12;
+	public static float FreezeStartRange = 12;
+	public static float AntiMaterialStartRange = 12;
+	public static float TeslaStartRange = 12;
+	public static float PlasmaCutterStartRange = 12;
+	public static float MinerStartRange = 12;
 	
 	private GameObject turretMenu;
 	private GameObject rangeSphere;
@@ -105,7 +105,7 @@ public abstract class TurretScript : MonoBehaviour {
 	
 	protected bool lookAtEnemy;
 	
-	private Vector3 menuHeight = new Vector3(0, 1.2f, 0);
+	private Vector3 menuHeight = new Vector3(0, 3.6f, 0);
 	
 	public TurretType CurrentType { get; set; }
 	public int UpgradeCost { get; set; }

@@ -10,5 +10,6 @@ public class EnemySpeederScript : EnemyScript {
 	{
 		healthBarOffset = new Vector3(0, 0.9f, 0);
 		moneyDrop = 20;
+		speed = 3;
 	}
 }

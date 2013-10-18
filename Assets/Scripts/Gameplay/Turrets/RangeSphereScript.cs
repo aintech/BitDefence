@@ -5,6 +5,7 @@ public class RangeSphereScript : MonoBehaviour {
 	
 	private Material mat;
 	private float speed = 0.5f;
+	private float scaleAmount = 0.65f;
 	
 	private void Awake()
 	{
@@ -14,8 +15,10 @@ public class RangeSphereScript : MonoBehaviour {
 	
 	public void SetRange(float turretRange)
 	{
-		float scale = turretRange * 2;
+		float scale = turretRange * scaleAmount;
+		Debug.Log(transform.localScale);
 		transform.localScale = new Vector3(scale, scale, scale);
+		Debug.Log(transform.localScale);
 	}
 	
 	private void Update()

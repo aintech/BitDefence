@@ -25,7 +25,7 @@ public class EnemyScript : MonoBehaviour {
 	
 	private Transform trans;
 	
-	private float speed = 1f;
+	protected float speed;
 	private float rotationSpeed = 10f;
 	private float freezeModifier = 0.5f;
 	private float maxHealth = 100;
