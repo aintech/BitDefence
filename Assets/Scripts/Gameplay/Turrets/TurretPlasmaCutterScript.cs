@@ -10,13 +10,13 @@ public class TurretPlasmaCutterScript : TurretScript
 	private List<Transform> guns;
 	private List<LineRenderer> rayRenderers;
 	
-	private float rayLength = 20;
-	private float rayOffset = 0.01f;
+	private float rayLength = 100;
+	private float rayOffset = 0.03f;
 	private float rayLifetime = 1;
 	private float rayLifeCount;
 	private bool raysOnStage;
-	private float rayMaxWidth = 0.05f;
-	private float rayShrinkSpeed = 0.1f;
+	private float rayMaxWidth = 0.3f;
+	private float rayShrinkSpeed = 0.6f;
 	private float rayWidth;
 	
 	public override void Init ()
@@ -44,10 +44,6 @@ public class TurretPlasmaCutterScript : TurretScript
 			rayRenderers.Add(ray.GetComponent<LineRenderer>());
 		}
 		
-//		rayRenderers.Add(guns[0].GetComponent<LineRenderer>());
-//		rayRenderers.Add(guns[1].GetComponent<LineRenderer>());
-//		rayRenderers.Add(guns[2].GetComponent<LineRenderer>());
-		
 		SetRaysToDefault();
 	}
 	
@@ -61,6 +57,8 @@ public class TurretPlasmaCutterScript : TurretScript
 			ray.SetPosition(0, trans.position);
 			ray.SetPosition(1, trans.position);
 			ray.SetWidth(rayMaxWidth, rayMaxWidth);
+			Color color = new Color(.5f, .5f, .5f, .5f);
+			ray.SetColors(color, color);
 		}
 	}
 	
@@ -105,7 +103,6 @@ public class TurretPlasmaCutterScript : TurretScript
 			{
 				if(hit.transform.name.Contains("Enemy"))
 				{
-					Debug.Log("HIT");
 					hit.transform.GetComponent<EnemyScript>().damageEnemy(damage, armorPiercing);
 				}
 			}

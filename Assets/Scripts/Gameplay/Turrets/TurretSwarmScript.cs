@@ -14,6 +14,8 @@ public class TurretSwarmScript : TurretScript {
 	private float launchDelayCounter = 0;
 	private int siloIndex = 0;
 	
+	private bool launched = false;
+	
 	override public void Init ()
 	{
 		rotationSpeed = 5;
@@ -34,8 +36,6 @@ public class TurretSwarmScript : TurretScript {
 			case 1: damage = 10; break;
 			case 2: damage = 15; break;
 			case 3: damage = 20; break;
-			case 4: damage = 25; break;
-			case 5: damage = 30; break;
 		}
 	}
 	
@@ -43,28 +43,30 @@ public class TurretSwarmScript : TurretScript {
 	{
 		countReload();
 		
-		if(!loaded && enemy != null) FollowEnemy();
-		else FindEnemy();
-		
-		if(loaded && enemy != null)
+		if(!launched && enemy != null)
 		{
-			
-			Vector3 enemyDirect = (enemy.position - body.position).normalized;
-			float angle = Vector3.Angle(body.forward, enemyDirect);
-			if(angle < 30f) {
-				if(launchDelayCounter < launchDelay)
-				{
-					launchDelayCounter += Time.deltaTime;
-				}
-				else
-				{
-					launchDelayCounter = 0;
-					LaunchProjectile();
-				}
+			FollowEnemy();
+		}
+		else if(enemy == null)
+		{
+			FindEnemy();
+		}
+		
+		if(loaded && !launched && enemy != null)
+		{
+			launched = true;
+		}
+		
+		if(launched)
+		{
+			if(launchDelayCounter < launchDelay)
+			{
+				launchDelayCounter += Time.deltaTime;
 			}
 			else
 			{
-				FollowEnemy();
+				launchDelayCounter = 0;
+				LaunchProjectile();
 			}
 		}
 	}
@@ -75,6 +77,7 @@ public class TurretSwarmScript : TurretScript {
 		{
 			siloIndex = 0;
 			loaded = false;
+			launched = false;
 		}
 		else
 		{

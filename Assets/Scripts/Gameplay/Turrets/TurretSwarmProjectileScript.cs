@@ -23,8 +23,8 @@ public class TurretSwarmProjectileScript : MonoBehaviour {
 	{
 		trans = transform;
 		
-		startSpeed = 6f;
-		speed = 3f;
+		startSpeed = 18f;
+		speed = 9f;
 		rotationSpeed = 0.1f;
 		startTargetingDelay = 0.3f;
 	}
@@ -56,7 +56,7 @@ public class TurretSwarmProjectileScript : MonoBehaviour {
 		{
 			if(!FindTarget())
 			{
-				Explode();
+				Explode(null);
 			}
 		}
 	}
@@ -88,18 +88,21 @@ public class TurretSwarmProjectileScript : MonoBehaviour {
 			other = point.otherCollider.gameObject;
 			if(other.name.Contains("Enemy") || other.name.Equals("Level"))
 			{
-				if(other != null)
+				if(other.GetComponent<EnemyScript>() != null)
 				{
-					other.GetComponent<EnemyScript>().damageEnemy(damage, armorPiercing);
+					Explode(other.GetComponent<EnemyScript>());
 				}
-				Explode();
 				return;
 			}
 		}
 	}
 	
-	private void Explode()
+	private void Explode(EnemyScript enemy)
 	{
+		if(enemy != null)
+		{
+			enemy.damageEnemy(damage, armorPiercing);
+		}
 		Destroy(gameObject);
 	}
 }

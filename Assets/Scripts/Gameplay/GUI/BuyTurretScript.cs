@@ -10,7 +10,7 @@ public class BuyTurretScript : MonoBehaviour {
 	private float btnOffset = 3;
 	
 	private GameObject actionMenu;
-	private Vector3 actionMenuOffset = new Vector3(0, 0.6f, 0);
+	private TurretScript.TurretType type;
 	
 	public Texture turretIcon;
 	public Texture gunIcon;
@@ -97,7 +97,6 @@ public class BuyTurretScript : MonoBehaviour {
 	
 	private void CreateGhostTurret(Texture tex)
 	{
-		TurretScript.TurretType type = TurretScript.TurretType.Gun;
 		if(tex == gunIcon)
 		{
 			turretGhost = Instantiate(ghostGun) as GameObject;
@@ -179,7 +178,8 @@ public class BuyTurretScript : MonoBehaviour {
 	
 	private void ChooseTurret()
 	{
-		actionMenu = Instantiate(actionMenuPrefab, turretGhost.transform.position + actionMenuOffset, Quaternion.identity) as GameObject;
+		Vector3 instHeight = new Vector3(0, Variables.TurretHeight(type) + 0.5f, 0);
+		actionMenu = Instantiate(actionMenuPrefab, turretGhost.transform.position + instHeight, Quaternion.identity) as GameObject;
 		actionMenu.GetComponent<ActionMenuScript>().Init(turretGhost.GetComponent<GhostTurretScript>().type, this);
 	}
 	

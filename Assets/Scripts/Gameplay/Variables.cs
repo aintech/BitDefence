@@ -55,4 +55,20 @@ public class Variables : MonoBehaviour {
 		}
 		elements.RemoveRange(0, elements.Count);
 	}
+	
+	public static float TurretHeight(TurretScript.TurretType type)
+	{
+		switch(type)
+		{
+			case TurretScript.TurretType.AntiMaterial: 	return 2; break;
+			case TurretScript.TurretType.Freeze: 		return 2; break;
+			case TurretScript.TurretType.Gun: 			return 2; break;
+			case TurretScript.TurretType.Hammer: 		return 2; break;
+			case TurretScript.TurretType.Miner: 		return 2; break;
+			case TurretScript.TurretType.PlasmaCutter: 	return 2; break;
+			case TurretScript.TurretType.Swarm: 		return 2; break;
+			case TurretScript.TurretType.Tesla: 		return 2; break;
+			default:									return 2;
+		}
+	}
 }
