@@ -118,7 +118,7 @@ public class EnemyScript : MonoBehaviour {
 		
 		float ratio = Health / maxHealth;
 		
-		barRightOffset = (0.26f * ratio) - 0.13f;
+		barRightOffset = (0.8f * ratio) - 0.4f;
 		
 		if(ratio > 0.95f) barRenderer.SetColors(fullBarColor, fullBarColor);
 		else if(ratio > 0.7f) barRenderer.SetColors(hitBarColor, hitBarColor);
@@ -128,7 +128,7 @@ public class EnemyScript : MonoBehaviour {
 	
 	private void DestroyEnemy()
 	{
-		Variables.enemies.Remove(transform.gameObject);
+		Variables.removeEnemy(gameObject);
 		Destroy(healthBar.gameObject);
 		Destroy(gameObject);
 	}

@@ -27,6 +27,7 @@ public class SpawnerScript : MonoBehaviour {
 		waves = LevelData.getEnemiesMap(Variables.Level);
 		CurrentWave = 1;
 		WaveStarted = false;
+		Variables.SetEnemiesInWave(waves[0].Count);
 	}
 	
 	private void Update() {
@@ -39,6 +40,7 @@ public class SpawnerScript : MonoBehaviour {
 			if(Variables.enemies.Count == 0)
 			{
 				CurrentWave++;
+				Variables.SetEnemiesInWave(waves[CurrentWave - 1].Count);
 				WaveDelayCounter = 0;
 				enemyInWaveCounter = 0;
 				if(CurrentWave > waves.Count)

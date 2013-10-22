@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//CONTINIUM - не работают кнопки меню - апгрейд и продажа
+
 public class TurretMenuScript : MonoBehaviour {
 
 	public GameObject costTextPrefub;

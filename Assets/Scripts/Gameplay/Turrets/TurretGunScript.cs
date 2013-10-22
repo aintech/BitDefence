@@ -53,11 +53,9 @@ public class TurretGunScript : TurretScript
 		
 		switch(Level)
 		{
-			case 1: damage = 2; break;
-			case 2: damage = 2; break;
-			case 3: damage = 4; break;
-			case 4: damage = 4; break;
-			case 5: damage = 4; break;
+			case 1: damage = 100; break;
+			case 2: damage = 5; break;
+			case 3: damage = 5; break;
 		}
 		
 		gunfires = new List<LineRenderer>();

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//FIX - ракета может начать нарезать круги над врагом и не может н анего упасть
+
 public class TurretSwarmProjectileScript : MonoBehaviour {
 	
 	private Transform turret;

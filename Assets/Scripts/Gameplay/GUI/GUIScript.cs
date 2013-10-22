@@ -3,61 +3,85 @@ using System.Collections;
 
 public class GUIScript : MonoBehaviour {
 	
-	public GUIStyle labelStyle;
+	public GUIStyle iconStyle;
+	public GUIStyle counterStyle;
+	public GUIStyle guiTextStyle;
 	public GUIStyle messageStyle;
 	
-	private Rect moneyBox;
+	private Vector2 btnDimension = new Vector2(30, 30);
+	
+	public Texture moneyIcon;
+	public Texture livesIcon;
+	public Texture waveIcon;
+	public Texture enemiesLeftIcon;
+	
+	private Rect guiPosition;
+	private Rect moneyIconPosition;
+	private Rect livesIconPosition;
+	private Rect waveIconPosition;
+	private Rect enemiesLeftIconPosition;
+	
+	private Rect nextWaveCounterLabel;
+	
+	private float moneyIconOffset = 10;
+	private float livesIconOffset = 100;
+	private float waveIconOffset = 170;
+	private float enemiesLeftIconOffset = 240;
+	
 	private Rect moneyLabel;
-	private Rect livesBox;
 	private Rect livesLabel;
-	private Rect waveBox;
 	private Rect waveLabel;
+	private Rect enemiesLeftLabel;
 	
 	private Rect messageBox;
 	private Rect messageLabel;
 	
 	private SpawnerScript spawnerScript;
+	private int enemiesInWave;
 	
 	private void Awake() {
 		Variables.Reload();
 		
 		spawnerScript = GameObject.Find("Spawner").GetComponent<SpawnerScript>();
 		
-		string label = "Money: " + Variables.Money + "$";
-		Vector2 labelDimension = labelStyle.CalcSize(new GUIContent(label));
+		moneyIconPosition = new Rect(moneyIconOffset, 10, btnDimension.x, btnDimension.y);
+		livesIconPosition = new Rect(livesIconOffset, 10, btnDimension.x, btnDimension.y);
+		waveIconPosition = new Rect(waveIconOffset, 10, btnDimension.x, btnDimension.y);
+		enemiesLeftIconPosition = new Rect(enemiesLeftIconOffset, 10, btnDimension.x, btnDimension.y);
 		
-		moneyLabel = new Rect(10, 10, 100, labelDimension.y + 5);
-		moneyBox = new Rect(moneyLabel.x - 5, moneyLabel.y - 5, moneyLabel.width + 10, moneyLabel.height + 10);
+		Vector2 labelDimension = guiTextStyle.CalcSize(new GUIContent("Word"));
 		
-		livesLabel = new Rect(moneyLabel.x, moneyLabel.y + moneyLabel.height + 15, moneyLabel.width, moneyLabel.height);
-		livesBox = new Rect(livesLabel.x - 5, livesLabel.y - 5, livesLabel.width + 10, livesLabel.height + 10);
+		moneyLabel = new Rect(moneyIconPosition.x + moneyIconPosition.width + 5, 10, 100, labelDimension.y + 5);
+		livesLabel = new Rect(livesIconPosition.x + livesIconPosition.width + 5, moneyLabel.y, 100, labelDimension.y + 5);
+		waveLabel = new Rect(waveIconPosition.x + waveIconPosition.width + 5, livesLabel.y, 100, labelDimension.y + 5);
+		nextWaveCounterLabel = new Rect(waveLabel.x,  waveLabel.height - waveLabel.height * .5f, 14, 14);
+		enemiesLeftLabel = new Rect(enemiesLeftIconPosition.x + enemiesLeftIconPosition.width + 5, waveLabel.y, 100, labelDimension.y + 5);
 		
-		waveLabel = new Rect(moneyLabel.x, livesLabel.y + livesLabel.height + 15, moneyLabel.width, moneyLabel.height);
-		waveBox = new Rect(waveLabel.x - 5, waveLabel.y - 5, waveLabel.width + 10, waveLabel.height + 10);
+		guiPosition = new Rect(5, 5, 300, btnDimension.y + 10);
 		
-		messageBox = new Rect(Screen.width - 5 - 200, 5, 200, 30);
+		messageBox = new Rect(Screen.width - 5 - 200, 5, 200, labelDimension.y + 5);
 		messageLabel = new Rect(messageBox.x, messageBox.y, messageBox.width, messageBox.height);
 	}
 	
 	private void OnGUI()
 	{
-		GUI.Box(moneyBox, "");
-		GUI.Label(moneyLabel, "Money: " + Variables.Money + "$", labelStyle);
+		GUI.Box(guiPosition, "");
 		
-		GUI.Box(livesBox, "");
-		GUI.Label(livesLabel, "Lives: " + Variables.Lives, labelStyle);
+		GUI.DrawTexture(moneyIconPosition, moneyIcon);
+		GUI.DrawTexture(livesIconPosition, livesIcon);
+		GUI.DrawTexture(waveIconPosition, waveIcon);
+		GUI.DrawTexture(enemiesLeftIconPosition, enemiesLeftIcon);
 		
-		GUI.Box(waveBox, "");
-		
+		GUI.Label(moneyLabel, Variables.Money.ToString(), guiTextStyle);
+		GUI.Label(livesLabel, Variables.Lives.ToString(), guiTextStyle);
+		GUI.Label(waveLabel, spawnerScript.CurrentWave.ToString(), guiTextStyle);
 		if(spawnerScript.WaveDelayCounter < spawnerScript.WaveDelay)
 		{
 			int waveCount = Mathf.RoundToInt(spawnerScript.WaveDelay - spawnerScript.WaveDelayCounter);
-			GUI.Label(waveLabel, "Wave: " + spawnerScript.CurrentWave.ToString() + " - in: " + waveCount.ToString(), labelStyle);
+			GUI.Label(nextWaveCounterLabel, waveCount.ToString(), counterStyle);
 		}
-		else
-		{
-			GUI.Label(waveLabel, "Wave: " + spawnerScript.CurrentWave.ToString(), labelStyle);
-		}
+		GUI.Label(enemiesLeftLabel, Variables.EnemiesLeft == 0? "-": Variables.EnemiesLeft.ToString(), guiTextStyle);
+		
 		
 		if(Variables.GameOver)
 		{

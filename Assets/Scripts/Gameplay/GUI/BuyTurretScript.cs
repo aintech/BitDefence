@@ -145,17 +145,7 @@ public class BuyTurretScript : MonoBehaviour {
 	{
 		if(Input.GetMouseButtonUp(0))
 		{
-			if(turretGhost != null)
-			{
-				if(turretGhost.GetComponent<GhostTurretScript>().CanBePlaced)
-				{
-					ChooseTurret();
-				}
-				else
-				{
-					Destroy(turretGhost);
-				}
-			}
+			performUnclick();
 		}
 		
 		if(turretGhost != null)
@@ -176,11 +166,28 @@ public class BuyTurretScript : MonoBehaviour {
 		}
 	}
 	
-	private void ChooseTurret()
+	private void performUnclick()
 	{
-		Vector3 instHeight = new Vector3(0, Variables.TurretHeight(type) + 0.5f, 0);
-		actionMenu = Instantiate(actionMenuPrefab, turretGhost.transform.position + instHeight, Quaternion.identity) as GameObject;
-		actionMenu.GetComponent<ActionMenuScript>().Init(turretGhost.GetComponent<GhostTurretScript>().type, this);
+		if(turretGhost != null)
+		{
+			if(turretGhost.GetComponent<GhostTurretScript>().CanBePlaced)
+			{
+				if(actionMenu == null)
+				{
+					Vector3 instHeight = new Vector3(0, Variables.TurretHeight(type) + 0.5f, 0);
+					actionMenu = Instantiate(actionMenuPrefab, turretGhost.transform.position + instHeight, Quaternion.identity) as GameObject;
+					actionMenu.GetComponent<ActionMenuScript>().Init(turretGhost.GetComponent<GhostTurretScript>().type, this);
+				}
+				else
+				{
+					Variables.RemoveAllFromElements();
+				}
+			}
+			else
+			{
+				Destroy(turretGhost);
+			}
+		}
 	}
 	
 	public void InstallTurret(TurretScript.TurretType type)

@@ -1,11 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-//FIX - swarm при выпуске ракет может повернуться и выбрать другого противка, даже если текущий жив
-
-//TODO - forwardPointer в модельку Hammer
-//TODO - настроить радиус турелей и проверить rangeSphere - чтобы отображала правильно радиус
-
 public class Variables : MonoBehaviour {
 	
 //	private static bool healthBarVisible;
@@ -26,14 +21,7 @@ public class Variables : MonoBehaviour {
 	//for elements that need to be remove - like actionmenu if created another menu
 	private static List<GameObject> elements = new List<GameObject>();
 	
-//	public static bool HealthBarVisible
-//	{
-//		set 
-//		{
-//			
-//		}
-//		get { return healthBarVisible; }
-//	}
+	public static int EnemiesLeft { get; private set; }
 	
 	public static void Reload()
 	{
@@ -70,5 +58,16 @@ public class Variables : MonoBehaviour {
 			case TurretScript.TurretType.Tesla: 		return 2; break;
 			default:									return 2;
 		}
+	}
+	
+	public static void removeEnemy(GameObject enemy)
+	{
+		enemies.Remove(enemy);
+		EnemiesLeft--;
+	}
+	
+	public static void SetEnemiesInWave(int value)
+	{
+		EnemiesLeft = value;
 	}
 }
