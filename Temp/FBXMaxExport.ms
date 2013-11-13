@@ -26,18 +26,18 @@ fn DialogCallback =
 pluginManager.loadClass FBXIMP;
 pluginManager.loadClass FBXEXP;
 
-openLog "C:/Users/Artfall/DOCUME~1/GitHub/BITDEF~1/Temp/3dsMax.log" mode:"w"
+openLog "C:/Users/MainUser/DOCUME~1/GitHub/BITDEF~1/Temp/3dsMax.log" mode:"w"
 print "Start of log file."; flushLog();
 while true do
 (	
-	if ( fileExists "C:/Users/Artfall/DOCUME~1/GitHub/BITDEF~1/Temp/MaxCommandPipe" ) then
+	if ( fileExists "C:/Users/MainUser/DOCUME~1/GitHub/BITDEF~1/Temp/MaxCommandPipe" ) then
 	(
 		exportNormals = false;
 		exportTangents = false;
 		bakeAnimations = false;
 		useFileUnits = false;
 	
-		waitpipe = (openFile "C:/Users/Artfall/DOCUME~1/GitHub/BITDEF~1/Temp/MaxCommandPipe" mode:"r");
+		waitpipe = (openFile "C:/Users/MainUser/DOCUME~1/GitHub/BITDEF~1/Temp/MaxCommandPipe" mode:"r");
 		filename = (readLine waitpipe);
 		
 		for i = 0 to 3 do
@@ -143,7 +143,7 @@ while true do
 					print "Before fbx export"; flushLog();
 					try
 					(
-						exportFile "C:/Users/Artfall/DOCUME~1/GitHub/BITDEF~1/Temp/MaxExportedFBXFile.fbx" #noprompt;
+						exportFile "C:/Users/MainUser/DOCUME~1/GitHub/BITDEF~1/Temp/MaxExportedFBXFile.fbx" #noprompt;
 					)
 					catch
 					(
@@ -152,7 +152,7 @@ while true do
 					print "After fbx export"; flushLog();
 				)
 
-				deleteFile "C:/Users/Artfall/DOCUME~1/GitHub/BITDEF~1/Temp/MaxCommandPipe";
+				deleteFile "C:/Users/MainUser/DOCUME~1/GitHub/BITDEF~1/Temp/MaxCommandPipe";
 				print "Finished max loading and fbx conversion"; flushLog();
 			) -- with defaultAction
 		)
